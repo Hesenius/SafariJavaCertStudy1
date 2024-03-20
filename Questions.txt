@@ -1,0 +1,212 @@
+Q) Which are legal:
+
+A) class X {
+     var x = 99;
+   }
+
+B) void doStuff(var x) { }
+
+C) void doStuff() {
+     var x;
+     x = 100;
+   }
+
+D) void doStuff() {
+     var x = 100;
+   }
+
+E) void doStuff() {
+     var x = null;
+   }
+
+Q) Which are legal:
+
+A) var [] x = { 1,2,3 };
+
+B) var x = new int[]{ 1,2,3 };
+
+C) var x = 10, y = 100;
+
+D)  var x = true ? "99" : 99;
+
+Q) Given:
+
+    String message = """Hello\
+    Java 17 World!""";
+    System.out.println(message + "XXX");
+
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) Hello
+   Java 17 World!XXX
+D) Hello Java 17 World!XXX
+E) Hello Java 17 World!
+   XXX
+
+Q) Given:
+
+    String message = """
+        Hello
+            Java 17 World!""";
+    System.out.println(message + "XXX");
+
+What is the result?
+A)
+Hello
+Java 17 World!XXX
+B)
+Hello
+    Java 17 World!XXX
+C)
+Hello
+Java 17 World!
+XXX
+D)
+    Hello
+        Java 17 World!
+XXX
+
+Q) Given
+
+    int x = -1;
+    System.out.println(x & 5);
+
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) -1
+D) 0x00000005
+E) 5
+
+Q)
+Which print "true"
+A) String s = "Hello";
+   String t = "He";
+   t += "llo";
+   sout(s == t);
+
+B) String s = "Hello";
+   String t = "He";
+   t += "llo";
+   sout(s.equals(t));
+
+C) StringBuilder s = new StringBuilder("Hello");
+   StringBuilder t = new StringBuilder("He");
+   t.append("llo");
+   sout(s.equals(t));
+
+D) List<String> ls = List.of("Fred", "Jim");
+   List<String> ls2 = new ArrayList<>(ls);
+   sout(ls.equals(ls2));
+
+E) LocalDate ld = LocalDate.of(2021, 3, 29);
+   LocalDate ld2 = LocalDate.of(2021, 3, 29);
+   sout(ld.equals(ld2));
+
+Q)
+Given:
+class X {
+  static String h = "Hel" + "lo";
+}
+And this code in a SEPARATE source file, compiled separately:
+
+  String s1 = "Hello";
+  String s2 = new StringBuilder("Hello").toString();
+  String s3 = s2.intern();
+
+Which are true:
+  A) s1 == s2
+  B) s2 == s3
+  C) s1 == s3
+  D) X.h == s1
+  E) None of the above
+
+Q) given:
+  class Thing {
+    int x = 99;
+
+    static void showIt() {
+      int x = 98;
+      System.out.println("x is " + x);
+    }
+  }
+
+What is the effect of:
+  Thing.showIt();
+
+  A) Compilation fails
+  B) Exception
+  C) x is 99
+  D) x is 98
+
+Q) Given:
+  class Base {
+    void doBaseStuff() { System.out.println("doBaseStuff"); }
+  }
+and
+  class Sub extends Base {
+    void doBaseStuff() { System.out.println("doSubStuff"); }
+
+    void doOtherStuff() { System.out.println("doOtherStuff"); }
+  }
+
+and
+  public static void main(String[] args) {
+    Base b = new Sub();
+    ((Sub) b).doOtherStuff();
+  }
+
+  What is the result?
+  A) doSubStuff
+  B) doOtherStuff
+  C) doBaseStuff
+  D) Exception at runtime
+  E) Compilation failure
+
+Q) Given:
+  class Base {
+    void doBaseStuff() { System.out.println("doBaseStuff"); }
+  }
+
+  class Sub extends Base {
+    void doBaseStuff() { System.out.println("doSubStuff"); }
+    void doOtherStuff() { System.out.println("doOtherStuff"); }
+  }
+
+  public static void main(String[] args) {
+    Base b = new Sub();
+    ((Runnable) b).run();
+  }
+
+  What is the result?
+  A) doSubStuff
+  B) doOtherStuff
+  C) doBaseStuff
+  D) Exception at runtime
+  E) Compilation failure
+
+Q) Given:
+  class Base {
+    void doBaseStuff() { System.out.println("doBaseStuff"); }
+  }
+
+  class Sub extends Base {
+    void doBaseStuff() { System.out.println("doSubStuff"); }
+    void doOtherStuff() { System.out.println("doOtherStuff"); }
+  }
+
+and:
+    Base b = new Base();
+    Sub s = (Sub)b;
+    s.doOtherStuff();
+
+  What is the result?
+  A) doSubStuff
+  B) doOtherStuff
+  C) doBaseStuff
+  D) Exception at runtime
+  E) Compilation failure
+
+
+// INSTANCEOF next!!!

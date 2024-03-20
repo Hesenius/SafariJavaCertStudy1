@@ -49,6 +49,8 @@ Java tutorial (Java 8 only, sadly, but excellent for helping understand
    core material up to and including lambdas and streams.)
  - https://docs.oracle.com/javase/tutorial/
  
+Practice exams with good reputation (I've not looked!)
+- https://enthuware.com/java-certification-mock-exams/oracle-certified-professional/ocp-java-17-exam-1z0-829
 
 Contact me directly at simon@dancingcloudservices.com if your 
 organization might be interested in customized training or course
