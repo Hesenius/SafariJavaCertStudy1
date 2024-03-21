@@ -208,5 +208,270 @@ and:
   D) Exception at runtime
   E) Compilation failure
 
+Q) Given:
+    Object obj = "Hello";
+    boolean answered = false;
+    if (obj instanceof String) {
+      String str = (String)obj;
+      if (str.length() > 3) {
+        System.out.println(str);
+        answered = true;
+      }
+    }
+    if (!answered) System.out.println("Nope");
+    Which replace the if clause to produce the same output?
+A)    System.out.println(obj instanceof String str && str.length() > 3 ? str : "Nope");
+B)    if (obj instanceof String str when str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Nope");
+C)    if (obj instanceof String str if str.length() > 3)
+        System.out.println(str);
+      else
+        System.out.println("Nope");
+D)    System.out.println(obj instanceof String.class str && str.length() > 3 ? str : "Nope");
+E)    if (!(obj instanceof String str) || str.length() <= 3)
+        System.out.println("Nope");
+      else
+        System.out.println(str);
 
-// INSTANCEOF next!!!
+Q) Given a switch statement:
+    Character x = null;
+    switch (x) {
+    }
+
+What type(s) are valid for x?
+A) Boolean
+B) Character
+C) Integer
+D) Long
+E) String
+
+Q) Given:
+    String s = "Hello";
+    switch (s) {
+      case "Hello" ->
+          System.out.print("Bonjour "); // line n1
+          System.out.print("Guten Tag ");
+      default -> System.out.print("Bye");
+    }
+
+Which is true?
+A) The code prints: Bonjour Guten Tag Bye
+B) The code prints: Bonjour Guten Tag
+C) If line n1 is removed the code prints: Guten Tag Bye
+D) If line n1 is removed the code prints: Guten Tag
+E) The code fails to compile
+
+Q) Given:
+    final String s = "Hello";
+    var m =
+    switch (s) {
+      // line n2
+      case "Hello" -> "Bonjour";
+    };
+    System.out.println(m);
+
+
+Which are true?
+A) Compilation succeeds
+B) The code throws an exception
+C) The code prints Bonjour
+D) The code prints Salut if this line is added at line n2
+   case String -> "Salut";
+E) The code prints Bonjour if this line is added at line n2
+   default -> "Unknown";
+
+Q) Given
+  void doStuff() throws IOException {};
+  void doStuff2() throws FileNotFoundException {};
+And:
+  void tryStuff() {
+    try {
+      doStuff();
+      doStuff2();
+    } enter code here {
+      // handle both exceptions
+    }
+  }
+
+What can be inserted at "enter code here"
+to provide handling of exceptions from both
+methods?
+
+A) catch (IOException | FileNotFoundException e)
+B) catch (FileNotFoundException | IOException e)
+C) catch (FileNotFoundException e)
+D) catch (IOException e)
+E) finally
+
+Q) Given:
+    var in = new FileReader(""); // line n1
+    try (
+        // line n2
+        FileWriter out = new FileWriter("");
+    ) { }
+    // line n3
+  }
+
+Which is/are true
+A) the code compiles as shown
+B) in; can be added at line n2
+C) line n1 can be prefixed with final
+D) line n1 must be prefixed with final
+E) these additions can be made:
+   at line n2: in;
+   at line n3: in = null;
+
+Q) Given
+class AC4 implements AutoCloseable {
+  @Override
+  public void close() throws Exception {
+    throw new SQLException();
+  }
+}
+
+And:
+    try (
+        var one = new AC4();
+        var two = new AC4();
+        ){
+      throw new FileNotFoundException();
+    }
+
+Which are true?
+A) Compilation fails
+B) A FileNotFoundException is thrown to the caller
+C) An SQLException is thrown to the caller
+D) close methods of resources "one" and "two" are called
+E) close methods of resources "one" and "two" are not both called
+
+Q) Given:
+  public static void q12A(StringBuilder x) {
+    x.append(" world");
+  }
+And:
+    StringBuilder x = new StringBuilder("Hello");
+    q12A(x);
+    System.out.println(x);
+
+  What is the result?
+  A) Hello
+  B) Hello world
+  C)  world
+  D) An error
+
+Q) Given:
+  public static void q14A(Integer x) {
+    x = x + 1;
+  }
+
+and:
+  public static void main(String[] args) {
+    Integer x = 99;
+    q14A(x);
+    System.out.println(x);
+  }
+
+  What is the result?
+  A) 99
+  B) 100
+  C) An error
+
+
+Q) Given:
+  public static void q13A(int[] x) {
+    x[0] = x[0] + 1;
+  }
+
+and:
+    int x[] = {99};
+    q13A(x);
+    System.out.println(x[0]);
+
+  What is the result?
+  A) 99
+  B) 100
+  C) An error
+
+Q) Given:
+  void doStuff(int x, int y) {}         // Method A
+  void doStuff(int x, long y) {}        // Method B
+  void doStuff(long x, int y) {}        // Method C
+  void doStuff(int ... x) {}            // Method D
+  void doStuff(Integer x, Integer y) {} // Method E
+and:
+    doStuff(1, 2);
+
+What happens if method A is deleted?
+A) Method B is invoked
+B) Method C is invoked
+C) Method D is invoked
+D) Method E is invoked
+E) Compilation fails
+
+Q) Given:
+enum Day {
+  MONDAY(1), TUESDAY;
+  public Day(int d) {}
+  public Day() {}
+}
+and:
+System.out.println(Day.MONDAY)
+
+What is the result?
+A) 1
+B) MONDAY
+C) Day.MONDAY
+D) Exception at runtime
+E) Compilation fails
+
+Q) Given:
+enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES;
+  boolean isTrumps() { return this == HEARTS; }
+}
+
+Which is/are true?
+A) isTrumps is implicitly static
+B) isTrumps can be marked final
+C) if it's necessary to prevent isTrumps being overridden,
+   it should be marked final
+D) isTrumps fails to compile
+E) none of the above
+
+Q)
+record SalesItem(String description, int price) {
+  // line n1
+}
+
+Which can be added individually at line n1?
+A) private int stockOnHand;
+B) @Override public int price() { return price; }
+C) @Override public int price() { return super.price() + 10; }
+D) static String ourStore;
+E) public int getDiscount() { return price / 10; }
+
+Q) Given:
+record Client(String name, int creditLimit) {
+ // line n1
+}
+Which are legal:
+A) At line n1
+   public Client(String name) {
+     this(name, 0);
+   }
+B) at line n1
+   public Client(String name, int creditLimit) {
+     super();
+     this.name = name;
+     this.creditLimit = creditLimit;
+   }
+C) as a separate declaration:
+   record SpecialClient(String name, int creditLimit, String greeting)
+     extends Client(name, creditLimit) {}
+D) at line n1
+   private Client() {
+     this("Unknown", 0);
+   }
+E) at line n1
+   Client {}

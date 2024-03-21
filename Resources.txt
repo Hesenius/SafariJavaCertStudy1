@@ -4,6 +4,12 @@ Resources
 Sign up for Heinz Kabutz's monthly "favorite courses on O'Reilly" email: https://javaspecialists.eu/courses/oreilly/
 (You might want to join his "Java Specialists" email newsletter too!)
 
+Join me on:
+LinkedIn: https://www.linkedin.com/in/simonhgroberts/
+Twitter: https://twitter.com/SimonHGRoberts
+Instagram: https://www.instagram.com/simonhgroberts/
+YouTube: https://www.youtube.com/@DancingCloudServices
+
 Quiztool:
  - https://dancingcloudservices.net/quiz-tool/
 GitHub repo (NOTE: this will vanish in two weeks, clone/download before then!)
