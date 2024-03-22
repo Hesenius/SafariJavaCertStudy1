@@ -1,4 +1,6 @@
-package overrides;
+package overloads;
+
+import java.util.List;
 
 public class Resolution {
   // Ambiguity at a step stops the process, and causes compilation failure.
@@ -16,6 +18,9 @@ public class Resolution {
   static void doStuff(Integer x, Integer y) {} // Method E
   static void doStuff(Integer x, Number y) {} // Method E
   static void doStuff(Number x, Integer y) {} // Method E
+
+  static void doStuff(List<Integer> l1) {}
+//  static void doStuff(List<String> l1) {} // List, is List, is List, this is ambiguous
 
   public static void main(String[] args) {
     doStuff(1, 2);
